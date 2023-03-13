@@ -12,7 +12,7 @@ customElements.define("countdown-timer", class extends HTMLElement {
             tag({
                 name: "style",
                 innerHTML: `:host {font-family:${prop("font", "arial")},sans-serif;text-align:center;font-size:${prop("font-size", "2.5rem")};` +
-                    `display:inline-block;wi1dth:${prop("width", "8em")}}` +
+                    `display:inline-block;width:${prop("width", "auto")}}` +
                     `#event{padding:0 1rem;background:${prop("event-background", "gold")};color:${prop("event-color", "black")}}` +
                     `#counters{display:grid;grid:1fr/repeat(4,auto);` +
                     `background:${prop("counters-background", "green")};color:${prop("counters-color", "white")}}` +

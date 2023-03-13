@@ -11,16 +11,18 @@
             --countdown-timer-font-size: 2.5rem;
         }
 
-        section + section {
+        section+section {
             margin-top: 3em;
         }
-        section>*:not(h2){
-            margin-left:1em;
+
+        section>*:not(h2) {
+            margin-left: 1em;
         }
-        code{
-            margin-left:1.5em;
-            background:lightgray;
-            padding:0 .5em;
+
+        code:not(.title) {
+            margin-left: 1.5em;
+            background: lightgray;
+            padding: 0 .5em;
         }
     </style>
     <script src="./element.js"></script>
@@ -30,24 +32,66 @@
 <body>
     <h1>&lt;countdown-timer></h1>
     <a href="https://masteringionic.com/blog/creating-a-countdown-timer-with-stencil-web-components">inspiration</a>
-    <section>
+    <section id="default">
         <h2>display a default countdown</h2>
         <h2><code>&lt;countdown-timer>&lt;/countdown-timer></code></h2>
         <countdown-timer></countdown-timer>
     </section>
-    <section>
+    <section id="date">
         <h2>set custom date and event attributes</h2>
         <h2><code>&lt;countdown-timer date="2038-01-19 03:14:07" event="Y2K38 Epochalypse"></code></h2>
         <countdown-timer date="2038-01-19 03:14:07" event="Y2K38 Epochalypse"></countdown-timer>
     </section>
-    <section>
+    <section id="language">
         <h2>Set the labels to any language</h2>
         <h2><code>&lt;countdown-timer labels="días,horas,minutos,segundos"></code></h2>
+        <h2><code>&lt;countdown-timer labels="dagen,uren,minuten,seconden"></code></h2>
         <countdown-timer labels="días,horas,minutos,segundos"></countdown-timer>
         <countdown-timer labels="dagen,uren,minuten,seconden"></countdown-timer>
     </section>
-    <h2><code>&lt;countdown-timer></code> minified GZIP Filesize</h2>
-    <file-size gz src="https://countdown-timer.github.io/element.js"></file-size>
+    <section id="CSS">
+        <h2>Style shadowDOM with CSS properties</h2>
+        <style>
+            #CSS {
+                --countdown-timer-width: 90vw;
+                --countdown-timer-font: Courier;
+                --countdown-timer-font-size: 2rem;
+                --countdown-timer-event-background: red;
+                --countdown-timer-event-color: white;
+                --countdown-timer-counters-background: teal;
+                --countdown-timer-counters-color: gold;
+                --countdown-timer-font-size: 3rem;
+                --countdown-timer-label-font-size: 1rem;
+            }
+            </style>
+        <pre>
+    --countdown-timer-width: 90vw;
+    --countdown-timer-font: Courier;
+    --countdown-timer-font-size: 2rem;
+    --countdown-timer-event-background: red;
+    --countdown-timer-event-color: white;
+    --countdown-timer-counters-background: teal;
+    --countdown-timer-counters-color: gold;
+    --countdown-timer-font-size: 3rem;
+    --countdown-timer-label-font-size: 1rem;
+    </pre>
+        <countdown-timer></countdown-timer>
+    </section>
+    <section id="parts">
+        <h2>Style shadowDOM with <code>::part(...)</code></h2>
+        <img src="https://i.imgur.com/43FEtpm.png" />
+        <style>
+            #parts {
+            }
+            </style>
+        <pre>
+    </pre>
+        <countdown-timer></countdown-timer>
+    </section>
+    <section id="filesize">
+        <h2><code class="title">&lt;countdown-timer></code> minified GZIP Filesize is <i>small</i></h2>
+        <file-size gz src="https://countdown-timer.github.io/element.min.js"></file-size>
+    </section>
 </body>
 
 </html>
